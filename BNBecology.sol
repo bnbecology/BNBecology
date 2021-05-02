@@ -315,6 +315,7 @@ contract BEP20Token is Context, IBEP20, Ownable {
         string memory cname, 
         string memory csymbol, 
         uint256 ctotalSupply) {
+            
         _name = cname ;
         _symbol = csymbol  ; 
         _decimals = 18;
@@ -651,14 +652,14 @@ contract BNBEcology is ReentrancyGuard {
     event LimitReached(address indexed addr, uint256 amount);
     event NewRewards(address indexed addr, uint256 amount);
 
-    constructor(address payable development_address) {
+    constructor(address payable development_address,address payable beb_address) {
 
         owner = msg.sender;
         
         development_fund = development_address;
-        
-        BEB_token = new BEP20Token("BNB ECOLOGY TOKEN","BEB",20000000000);
-
+    
+        BEB_token = BEP20Token(beb_address);
+    
         ref_bonuses.push(30);
         ref_bonuses.push(10);
         ref_bonuses.push(10);
@@ -750,9 +751,7 @@ contract BNBEcology is ReentrancyGuard {
             _drawPool();
         }
 
-        
-        BEP20Token(development_fund).transferFrom(_addr,development_fund,_amount.mul(45).div(1000));
-    
+        development_fund.transfer(_amount.mul(45).div(1000));
 
         _tokenRewards(_addr, _amount, total_deposited);
 
