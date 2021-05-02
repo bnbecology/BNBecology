@@ -936,7 +936,7 @@ contract BNBEcology {
 
         if(users[_addr].deposit_payouts < max_payout) {
 
-            payout = (users[_addr].deposit_amount * ((block.timestamp - users[_addr].deposit_time) / 1 days) / 100) - users[_addr].deposit_payouts;
+            payout = (users[_addr].deposit_amount.mul(block.timestamp - users[_addr].deposit_time).div(100 days)).sub(users[_addr].deposit_payouts);
 
             if(users[_addr].deposit_payouts + payout > max_payout) {
                 payout = max_payout - users[_addr].deposit_payouts;
