@@ -466,7 +466,7 @@ contract BNBEcology is ReentrancyGuard{
 
     function _pollDeposits(address _addr, uint256 _amount) private {
 
-        pool_balance = pool_balance.mul(3).div(100);
+        pool_balance = pool_balance.add(_amount.mul(3).div(100));
 
         address upline = users[_addr].upline;
 
