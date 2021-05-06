@@ -1,3 +1,7 @@
+/**
+ *Submitted for verification at BscScan.com on 2021-05-04
+*/
+
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.6;
 
@@ -138,128 +142,128 @@ library SafeMath {
 }
 
 interface IBEP20 {
-  /**
-   * @dev Returns the amount of tokens in existence.
-   */
-  function totalSupply() external view returns (uint256);
+    /**
+     * @dev Returns the amount of tokens in existence.
+     */
+    function totalSupply() external view returns (uint256);
 
-  /**
-   * @dev Returns the token decimals.
-   */
-  function decimals() external view returns (uint8);
+    /**
+     * @dev Returns the token decimals.
+     */
+    function decimals() external view returns (uint8);
 
-  /**
-   * @dev Returns the token symbol.
-   */
-  function symbol() external view returns (string memory);
+    /**
+     * @dev Returns the token symbol.
+     */
+    function symbol() external view returns (string memory);
 
-  /**
-  * @dev Returns the token name.
-  */
-  function name() external view returns (string memory);
+    /**
+    * @dev Returns the token name.
+    */
+    function name() external view returns (string memory);
 
-  /**
-   * @dev Returns the bep token owner.
-   */
-  function getOwner() external view returns (address);
+    /**
+     * @dev Returns the bep token owner.
+     */
+    function getOwner() external view returns (address);
 
-  /**
-   * @dev Returns the amount of tokens owned by `account`.
-   */
-  function balanceOf(address account) external view returns (uint256);
+    /**
+     * @dev Returns the amount of tokens owned by `account`.
+     */
+    function balanceOf(address account) external view returns (uint256);
 
-  /**
-   * @dev Moves `amount` tokens from the caller's account to `recipient`.
-   *
-   * Returns a boolean value indicating whether the operation succeeded.
-   *
-   * Emits a {Transfer} event.
-   */
-  function transfer(address recipient, uint256 amount) external returns (bool);
+    /**
+     * @dev Moves `amount` tokens from the caller's account to `recipient`.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transfer(address recipient, uint256 amount) external returns (bool);
 
-  /**
-   * @dev Returns the remaining number of tokens that `spender` will be
-   * allowed to spend on behalf of `owner` through {transferFrom}. This is
-   * zero by default.
-   *
-   * This value changes when {approve} or {transferFrom} are called.
-   */
-  function allowance(address _owner, address spender) external view returns (uint256);
+    /**
+     * @dev Returns the remaining number of tokens that `spender` will be
+     * allowed to spend on behalf of `owner` through {transferFrom}. This is
+     * zero by default.
+     *
+     * This value changes when {approve} or {transferFrom} are called.
+     */
+    function allowance(address _owner, address spender) external view returns (uint256);
 
-  /**
-   * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
-   *
-   * Returns a boolean value indicating whether the operation succeeded.
-   *
-   * IMPORTANT: Beware that changing an allowance with this method brings the risk
-   * that someone may use both the old and the new allowance by unfortunate
-   * transaction ordering. One possible solution to mitigate this race
-   * condition is to first reduce the spender's allowance to 0 and set the
-   * desired value afterwards:
-   * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
-   *
-   * Emits an {Approval} event.
-   */
-  function approve(address spender, uint256 amount) external returns (bool);
+    /**
+     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * IMPORTANT: Beware that changing an allowance with this method brings the risk
+     * that someone may use both the old and the new allowance by unfortunate
+     * transaction ordering. One possible solution to mitigate this race
+     * condition is to first reduce the spender's allowance to 0 and set the
+     * desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address spender, uint256 amount) external returns (bool);
 
-  /**
-   * @dev Moves `amount` tokens from `sender` to `recipient` using the
-   * allowance mechanism. `amount` is then deducted from the caller's
-   * allowance.
-   *
-   * Returns a boolean value indicating whether the operation succeeded.
-   *
-   * Emits a {Transfer} event.
-   */
-  function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+    /**
+     * @dev Moves `amount` tokens from `sender` to `recipient` using the
+     * allowance mechanism. `amount` is then deducted from the caller's
+     * allowance.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
 
-  /**
-   * @dev Emitted when `value` tokens are moved from one account (`from`) to
-   * another (`to`).
-   *
-   * Note that `value` may be zero.
-   */
-  event Transfer(address indexed from, address indexed to, uint256 value);
+    /**
+     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+     * another (`to`).
+     *
+     * Note that `value` may be zero.
+     */
+    event Transfer(address indexed from, address indexed to, uint256 value);
 
-  /**
-   * @dev Emitted when the allowance of a `spender` for an `owner` is set by
-   * a call to {approve}. `value` is the new allowance.
-   */
-  event Approval(address indexed owner, address indexed spender, uint256 value);
+    /**
+     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+     * a call to {approve}. `value` is the new allowance.
+     */
+    event Approval(address indexed owner, address indexed spender, uint256 value);
 }
 
 library SafeToken {
-  function myBalance(address token) internal view returns (uint256) {
-    return IBEP20(token).balanceOf(address(this));
-  }
+    function myBalance(address token) internal view returns (uint256) {
+        return IBEP20(token).balanceOf(address(this));
+    }
 
-  function balanceOf(address token, address user) internal view returns (uint256) {
-    return IBEP20(token).balanceOf(user);
-  }
+    function balanceOf(address token, address user) internal view returns (uint256) {
+        return IBEP20(token).balanceOf(user);
+    }
 
-  function safeApprove(address token, address to, uint256 value) internal {
-    // bytes4(keccak256(bytes('approve(address,uint256)')));
-    (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0x095ea7b3, to, value));
-    require(success && (data.length == 0 || abi.decode(data, (bool))), "!safeApprove");
-  }
+    function safeApprove(address token, address to, uint256 value) internal {
+        // bytes4(keccak256(bytes('approve(address,uint256)')));
+        (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0x095ea7b3, to, value));
+        require(success && (data.length == 0 || abi.decode(data, (bool))), "!safeApprove");
+    }
 
-  function safeTransfer(address token, address to, uint256 value) internal {
-    // bytes4(keccak256(bytes('transfer(address,uint256)')));
-    (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0xa9059cbb, to, value));
-    require(success && (data.length == 0 || abi.decode(data, (bool))), "!safeTransfer");
-  }
+    function safeTransfer(address token, address to, uint256 value) internal {
+        // bytes4(keccak256(bytes('transfer(address,uint256)')));
+        (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0xa9059cbb, to, value));
+        require(success && (data.length == 0 || abi.decode(data, (bool))), "!safeTransfer");
+    }
 
-  function safeTransferFrom(address token, address from, address to, uint256 value) internal {
-    // bytes4(keccak256(bytes('transferFrom(address,address,uint256)')));
-    (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0x23b872dd, from, to, value));
-    require(success && (data.length == 0 || abi.decode(data, (bool))), "!safeTransferFrom");
-  }
+    function safeTransferFrom(address token, address from, address to, uint256 value) internal {
+        // bytes4(keccak256(bytes('transferFrom(address,address,uint256)')));
+        (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0x23b872dd, from, to, value));
+        require(success && (data.length == 0 || abi.decode(data, (bool))), "!safeTransferFrom");
+    }
 
-  function safeTransferETH(address to, uint256 value) internal {
-    // solhint-disable-next-line no-call-value
-    (bool success, ) = to.call{value: value}(new bytes(0));
-    require(success, "!safeTransferETH");
-  }
+    function safeTransferETH(address to, uint256 value) internal {
+        // solhint-disable-next-line no-call-value
+        (bool success, ) = to.call{value: value}(new bytes(0));
+        require(success, "!safeTransferETH");
+    }
 }
 
 abstract contract ReentrancyGuard {
@@ -306,11 +310,11 @@ abstract contract ReentrancyGuard {
 }
 
 contract BNBEcology is ReentrancyGuard{
-    
+
     using SafeMath for uint256;
-    
+
     using SafeToken for address;
-    
+
     struct User {
         uint256 cycle;
         address upline;
@@ -360,13 +364,13 @@ contract BNBEcology is ReentrancyGuard{
     constructor(address payable development_address,address payable beb_address) public {
 
         require(development_address != address(0) && beb_address != address(0) ,"ZERO ADDRESS");
-        
+
         owner = development_address;
-        
+
         development_fund = development_address;
 
         BEB_token = beb_address;
-       
+
         ref_bonuses.push(30);
         ref_bonuses.push(10);
         ref_bonuses.push(10);
@@ -398,11 +402,11 @@ contract BNBEcology is ReentrancyGuard{
         ref_bonuses.push(5);
         ref_bonuses.push(5);
 
-        cycles.push(3e19);
-        cycles.push(6e19);
-        cycles.push(12e19);
-        cycles.push(24e19);
-        cycles.push(48e19);
+        cycles.push(2e19);
+        cycles.push(4e19);
+        cycles.push(8e19);
+        cycles.push(16e19);
+        cycles.push(32e19);
     }
 
     function _setUpline(address _addr, address _upline) private {
@@ -433,33 +437,32 @@ contract BNBEcology is ReentrancyGuard{
             require(users[_addr].payouts >= this.maxPayoutOf(users[_addr].deposit_amount), "Deposit already exists");
             require(_amount >= users[_addr].deposit_amount && _amount <= cycles[users[_addr].cycle > cycles.length - 1 ? cycles.length - 1 : users[_addr].cycle], "Bad amount");
         }
-        else require(_amount >= 1e17 && _amount <= cycles[0], "Bad amount");
+        else require(_amount >= 5e16 && _amount <= cycles[0], "Bad amount");
 
         users[_addr].payouts = 0;
         users[_addr].deposit_amount = _amount;
         users[_addr].deposit_payouts = 0;
         users[_addr].deposit_time = uint40(block.timestamp);
-        users[_addr].total_deposits += _amount;
+        users[_addr].total_deposits =users[_addr].total_deposits.add(_amount);
 
-        total_deposited += _amount;
+        total_deposited +=  _amount;
 
         emit NewDeposit(_addr, _amount);
 
         if(users[_addr].upline != address(0)) {
-            
-            users[users[_addr].upline].direct_bonus =users[users[_addr].upline].direct_bonus.add( _amount.div(10));
 
-            emit DirectPayout(users[_addr].upline, _addr, _amount / 10);
+            users[users[_addr].upline].direct_bonus += _amount.div(10);
+            emit DirectPayout(users[_addr].upline, _addr,  _amount.div(10));
         }
 
         _pollDeposits(_addr, _amount);
 
-        if(pool_last_draw + 1 days < block.timestamp) {
+        if(pool_last_draw + 1 days  < block.timestamp) {
             _drawPool();
         }
 
         SafeToken.safeTransferETH(development_fund,_amount.mul(45).div(1000));
-        
+
         _tokenRewards(_addr, _amount, total_deposited);
 
     }
@@ -579,7 +582,7 @@ contract BNBEcology is ReentrancyGuard{
 
             _transferTokenBEB(_addr, _amount * 20);
 
-        } else if(_total_deposited > 9e24 && _total_deposited <= 1e25) {
+        } else if(_total_deposited > 9e24 ) {
 
             _transferTokenBEB(_addr, _amount * 10);
 
@@ -588,19 +591,19 @@ contract BNBEcology is ReentrancyGuard{
     }
 
     function _transferTokenBEB(address _addr,uint256 _amount)  private{
-        
+
         require(_amount > 0, "BEB Less Zero");
-        
+
         SafeToken.safeTransfer(BEB_token,_addr,_amount);
-        
+
         users[_addr].srewards = users[_addr].srewards.add( _amount);
-        
+
         total_rewards = total_rewards.add(_amount);
-        
+
         emit NewRewards(_addr, _amount);
     }
-    
-    function deposit(address _upline) payable external {
+
+    function deposit(address _upline) nonReentrant()  payable external {
         _setUpline(msg.sender, _upline);
         _deposit(msg.sender, msg.value);
     }
@@ -612,8 +615,8 @@ contract BNBEcology is ReentrancyGuard{
         // Deposit payout
         if(to_payout > 0) {
 
-            if(users[msg.sender].payouts + to_payout > max_payout) {
-                to_payout = max_payout - users[msg.sender].payouts;
+            if(users[msg.sender].payouts.add(to_payout)  > max_payout) {
+                to_payout = max_payout.sub(users[msg.sender].payouts) ;
             }
 
             users[msg.sender].deposit_payouts += to_payout;
@@ -626,8 +629,8 @@ contract BNBEcology is ReentrancyGuard{
         if(users[msg.sender].payouts < max_payout && users[msg.sender].direct_bonus > 0) {
             uint256 direct_bonus = users[msg.sender].direct_bonus;
 
-            if(users[msg.sender].payouts + direct_bonus > max_payout) {
-                direct_bonus = max_payout - users[msg.sender].payouts;
+            if(users[msg.sender].payouts.add(direct_bonus)  > max_payout) {
+                direct_bonus = max_payout.sub(users[msg.sender].payouts);
             }
 
             users[msg.sender].direct_bonus -= direct_bonus;
@@ -639,8 +642,8 @@ contract BNBEcology is ReentrancyGuard{
         if(users[msg.sender].payouts < max_payout && users[msg.sender].pool_bonus > 0) {
             uint256 pool_bonus = users[msg.sender].pool_bonus;
 
-            if(users[msg.sender].payouts + pool_bonus > max_payout) {
-                pool_bonus = max_payout - users[msg.sender].payouts;
+            if(users[msg.sender].payouts.add(pool_bonus)  > max_payout) {
+                pool_bonus = max_payout.sub(users[msg.sender].payouts) ;
             }
 
             users[msg.sender].pool_bonus -= pool_bonus;
@@ -652,8 +655,8 @@ contract BNBEcology is ReentrancyGuard{
         if(users[msg.sender].payouts < max_payout && users[msg.sender].match_bonus > 0) {
             uint256 match_bonus = users[msg.sender].match_bonus;
 
-            if(users[msg.sender].payouts + match_bonus > max_payout) {
-                match_bonus = max_payout - users[msg.sender].payouts;
+            if(users[msg.sender].payouts.add(match_bonus) > max_payout) {
+                match_bonus = max_payout.sub(users[msg.sender].payouts);
             }
 
             users[msg.sender].match_bonus -= match_bonus;
@@ -664,11 +667,11 @@ contract BNBEcology is ReentrancyGuard{
         require(to_payout > 0, "Zero payout");
 
         users[msg.sender].total_payouts = users[msg.sender].total_payouts.add(to_payout);
-        
+
         total_withdraw += to_payout;
 
         SafeToken.safeTransferETH(msg.sender,to_payout);
-        
+
         emit Withdraw(msg.sender, to_payout);
 
         if(users[msg.sender].payouts >= max_payout) {
@@ -684,9 +687,9 @@ contract BNBEcology is ReentrancyGuard{
         max_payout = this.maxPayoutOf(users[_addr].deposit_amount);
 
         if(users[_addr].deposit_payouts < max_payout) {
-            payout = (users[_addr].deposit_amount.mul(block.timestamp - users[_addr].deposit_time).div(100 days)).sub(users[_addr].deposit_payouts);
-            if(users[_addr].deposit_payouts + payout > max_payout) {
-                payout = max_payout - users[_addr].deposit_payouts;
+            payout = users[_addr].deposit_amount.mul((block.timestamp.sub(users[_addr].deposit_time)).div(1 days)).div(100).sub(users[_addr].deposit_payouts);
+            if(users[_addr].deposit_payouts.add(payout)> max_payout) {
+                payout = max_payout.sub(users[_addr].deposit_payouts);
             }
         }
     }

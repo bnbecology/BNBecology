@@ -348,11 +348,11 @@ contract BEP20Standard is Context, IBEP20, Ownable {
   string private _symbol;
   string private _name;
 
-  constructor( string memory name, string memory symbol, uint256  totalSupply) public {
-    _name = name ;
-    _symbol = symbol  ; 
+  constructor() public {
+    _name = "BNB ECOLOGY TOKEN" ;
+    _symbol = "BEB"  ;
     _decimals = 18;
-    _totalSupply =  totalSupply * uint256(10**18);
+    _totalSupply =  20000000000 * uint256(10**18);
     _balances[msg.sender] = _totalSupply;
     emit Transfer(address(0), msg.sender, _totalSupply);
   }
